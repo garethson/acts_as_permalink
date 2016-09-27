@@ -15,7 +15,7 @@ module Acts
         @max_length = 60 unless @max_length > 0
         @allow_update = !!@config[:allow_update]
         @allow_blank = !!@config[:allow_blank]
-        @use_for_param = @config[:use_for_param] == true ? true : false
+        @use_for_param = (@config[:use_for_param] == false ? false : true)
       end
     end
   end

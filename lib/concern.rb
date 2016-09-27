@@ -27,9 +27,9 @@ module Acts
     module InstanceMethods
       def to_param
         if self.class.base_class.acts_as_permalink_config.use_for_param
-          super
-        else
           self.public_send(self.class.base_class.acts_as_permalink_config.to)
+        else
+          super
         end
       end
 
