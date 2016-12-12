@@ -1,7 +1,7 @@
 module Acts
   module Permalink
     class Config
-      attr_reader :to, :from, :separator, :max_length, :scope, :allow_update, :allow_blank, :use_for_param
+      attr_reader :to, :from, :separator, :max_length, :scope, :allow_update, :allow_blank, :use_for_param, :strip_characters
 
       def initialize(options={})
         @config = options.with_indifferent_access
@@ -16,6 +16,7 @@ module Acts
         @allow_update = !!@config[:allow_update]
         @allow_blank = !!@config[:allow_blank]
         @use_for_param = (@config[:use_for_param] == false ? false : true)
+        @strip_characters = @config[:strip_characters].presence
       end
     end
   end

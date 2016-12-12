@@ -20,5 +20,9 @@ describe Acts::Permalink::Conversion do
       expect(Acts::Permalink::Conversion.convert("ümlaUT")).to eq("umlaut")
       expect(Acts::Permalink::Conversion.convert("garçon")).to eq("garcon")
     end
+
+    it "removes anything in strip-characters" do
+      expect(Acts::Permalink::Conversion.convert("it's a wonderful day!!", replacements: "'l")).to eq("its-a-wonderfu-day")
+    end
   end
 end
