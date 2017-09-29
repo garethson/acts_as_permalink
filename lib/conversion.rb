@@ -8,10 +8,9 @@ module Acts
           string.delete!(replacements) if replacements             # remove an explicit replacements without a separator
           string = string.gsub(/[^a-z0-9]/, separator)             # make any character that is not nupermic or alphabetic into a special character
           string = string.squeeze(separator)                       # removes any consecutive duplicates of the special character
+          string = string[0...max_length] if max_length            # trim to length
           string = string.sub(Regexp.new("^#{ separator }+"), "")  # remove leading special characters
           string = string.sub(Regexp.new("#{ separator }+$"), "")  # remove trailing special characters
-          string = string[0...max_length] if max_length            # trim to length
-
           string
         end
       end
